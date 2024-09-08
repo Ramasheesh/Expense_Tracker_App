@@ -1,0 +1,11 @@
+{
+    "port":4040,
+
+    "jwtOption": {
+        "jwtSecretKey": "ededwedwwpolfePtbEadRzVlewewf2323ferferf2323"
+    },
+    "mongo":{
+        "url":"mongodb://127.0.0.1:27017/expenseTrackApp"
+    }
+
+}
