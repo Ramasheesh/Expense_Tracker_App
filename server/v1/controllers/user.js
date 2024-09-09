@@ -49,37 +49,32 @@ const signup = async (req, res) => {
 const login = async (req, res) => {
   try {
     const data = req.body;
+    // console.log('data: ', data);
     let user;
 
     if (data.email) {
-      user = await Model.findOne({ email: data.email ,isLogin: false });
-      // console.log('user: ', user);
-      if (!user) {
-        return res
-          .status(responseCode.BAD_REQUEST)
-          .json(errorMessage.INVALID_CREDENTIALS);
-      }
+      user = await Model.findOne({ email: data.email, isLogin: false });
+    } else if (data.phone) {
+      user = await Model.findOne({ phone: data.phone, isLogin: false });
     }
-    if (data.phone) {
-      user = await Model.findOne({ phone: data.phone ,isLogin: false });
-      if (!user) {
-        return res
-          .status(responseCode.BAD_REQUEST)
-          .json(errorMessage.INVALID_CREDENTIALS);
-      }
+
+    if (!user) {
+      return res
+        .status(400)
+        .json(errorMessage.INVALID_CREDENTIALS);
     }
-    // Check if password matches
+
     const isPasswordValid = await utility.comparePasswordUsingBcrypt(
       data.password,
       user.password
     );
     if (!isPasswordValid) {
       return res
-        .status(responseCode.UNAUTHORIZED)
+        .status(400)
         .json(errorMessage.INVALID_CREDENTIALS);
     }
     const token = await utility.jwtSign({ id: user._id });
-    // console.log(user);
+
     if(data.email){
     user.isEmailVerify = true
     }else{

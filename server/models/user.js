@@ -11,7 +11,7 @@ let User_Model = new Schema({
     },
     email: { type: String, trim: true
     },
-    phone: { type: String, trim: true, default: ""
+    phone: { type: String, trim: true,
     },
    
     password:{type:String,default:" " ,trim:true

@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import '../styles/SignIn.css';
 
 const SignIn = () => {
-    const [emailOrMobile, setEmailOrMobile] = useState('');
+    const [inputValue, setInputValue] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { setIsAuthenticated } = useContext(AuthContext);
@@ -13,12 +13,19 @@ const SignIn = () => {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+      const isEmail = inputValue.includes('@');
       try {
-        await signIn(emailOrMobile, password);
+        // Validate the input to determine if it's an email or phone number
+        const loginData = {
+          email: isEmail ? inputValue : undefined,
+          phone: !isEmail ? inputValue : undefined,
+          password,
+        };
+        await signIn(loginData);
         setIsAuthenticated(true);
         navigate('/');
       } catch (err) {
-        console.log('err: ', err);
+        console.log('err: ', err); 
         setError('Invalid credentials. Please try again.');
       }
     };
@@ -30,8 +37,8 @@ const SignIn = () => {
           <input
             type="text"
             placeholder="Email or Mobile"
-            value={emailOrMobile}
-            onChange={(e) => setEmailOrMobile(e.target.value)}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
             required
           />
           <input

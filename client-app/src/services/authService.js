@@ -31,9 +31,9 @@ export const signup = async (name, email, password) => {
 };
 
 // Sign-in an existing user (alternative to login)
-export const signIn = async (email, password) => {
+export const signIn = async (loginData) => {
   try {
-    const response = await axios.post(`${API_URL}/user/signin`, { email, password });
+    const response = await axios.post(`${API_URL}/user/signin`, loginData);
     localStorage.setItem('user', JSON.stringify(response.data)); // Store user data in local storage
     return response.data;
   } catch (error) {
