@@ -46,7 +46,7 @@ exports.getMonthlyIncomeExpenses = async (req, res) => {
             });
         }
 
-        res.status(200).json(monthlyData);
+        return res.status(200).json(monthlyData);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -68,7 +68,7 @@ exports.getCategorizedExpenses = async (req, res) => {
             categoryData[categoryName] += expense.amount;
         });
 
-        res.status(200).json(categoryData);
+        return res.status(200).json(categoryData);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -80,7 +80,7 @@ exports.getDashboardData = async (req, res) => {
     try {
         // Get total income and total expenses for the year
         const incomes = await Income.aggregate([
-            { $match: { userId: mongoose.Types.ObjectId(req.user._id), isLocked: true, year } },
+            { $match: { userId: mongoose.Types.ObjectId(req.user._id), year } },//isLocked: true
             { $group: { _id: null, totalIncome: { $sum: '$amount' } } }
         ]);
 
@@ -95,7 +95,7 @@ exports.getDashboardData = async (req, res) => {
 
         // Get monthly income and expenses for chart
         const monthlyIncome = await Income.aggregate([
-            { $match: { userId: mongoose.Types.ObjectId(req.user._id), isLocked: true, year } },
+            { $match: { userId: mongoose.Types.ObjectId(req.user._id), year } },// isLocked: true,
             { $group: { _id: { month: '$month' }, total: { $sum: '$amount' } } },
             { $project: { _id: 0, month: '$_id.month', total: 1 } }
         ]);
@@ -106,7 +106,7 @@ exports.getDashboardData = async (req, res) => {
             { $project: { _id: 0, month: '$_id.month', total: 1 } }
         ]);
 
-        res.json({
+        return res.json({
             totalIncome,
             totalExpenses,
             totalSavings,

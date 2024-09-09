@@ -10,7 +10,7 @@ import { AuthProvider } from './context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
      <AuthProvider>
     <GoogleOAuthProvider clientId="">
     <ErrorBoundary>
@@ -18,7 +18,7 @@ root.render(
       </ErrorBoundary>
     </GoogleOAuthProvider>
     </AuthProvider>
-  </React.StrictMode>
+  //</React.StrictMode>
 );
 
    
