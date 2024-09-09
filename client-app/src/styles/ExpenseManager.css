@@ -1,0 +1,147 @@
+/* General Styles */
+.expense-manager {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group input{
+    margin-left:20px;
+}
+
+/* Form Styles */
+.expense-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.expense-form input,
+.expense-form select,
+.expense-form button {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expense-form input:focus,
+.expense-form select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.expense-form button {
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.expense-form button:hover {
+    background-color: #218838;
+}
+
+/* List Styles */
+.expense-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.expense-item {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.expense-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.expense-item button {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.expense-item button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .expense-manager {
+        padding: 15px;
+    }
+
+    .expense-form input,
+    .expense-form select,
+    .expense-form button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .expense-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .expense-item button {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .expense-manager {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+
+    .expense-form input,
+    .expense-form select,
+    .expense-form button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .expense-item {
+        padding: 10px;
+    }
+
+    .expense-item button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}

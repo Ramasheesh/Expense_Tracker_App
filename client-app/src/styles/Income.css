@@ -1,0 +1,170 @@
+/* General Styling for Income Manager */
+.income-manager {
+    margin-top: 40px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Income Form Styling */
+.income-form {
+    justify-content: space-between;
+    margin-top: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Increased gap between form elements */
+    margin-bottom: 30px;
+}
+.income-form button{
+    display: flex;
+}
+.income-form input,
+.income-form button {
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.income-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.income-form button {
+    justify-content: space-between;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.income-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Income List Styling */
+.income-list {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Gap between income items */
+}
+
+.income-item {
+    /* margin:auto; */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.income-item:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.income-item button {
+    /* margin:auto; */
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.income-item button:hover {
+    background-color: #218838;
+}
+
+/* Add spacing between buttons */
+.income-item button + button {
+    margin-left: 20px;
+    margin-top: 20px; /* Gap between buttons */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .income-manager {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .income-form input,
+    .income-form button {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .income-item {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .income-item button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .income-manager {
+        padding: 10px;
+    }
+
+    .income-form input,
+    .income-form button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .income-item {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .income-item button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile First Design Improvements */
+@media (max-width: 320px) {
+    .income-form input,
+    .income-form button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .income-item button {
+        padding: 6px 10px;
+    }
+}
+

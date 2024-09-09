@@ -1,0 +1,103 @@
+/* Basic styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 0.5rem 1rem;
+  position: relative;
+}
+
+.navbar .brand {
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  font-size: 1.1rem;
+  gap: 1.6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  transition: background 0.3s;
+  border-radius: 5px; /* Ensure consistent styling for active links */
+}
+.nav-links li button {
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem;
+  color:#000;
+  transition: background 0.3s;
+  border-radius: 5px; /* Ensure consistent styling for active links */
+}
+.nav-links li button:hover {
+  background-color: #4e54c8; /* Background color for active link */
+  color: #fff; /* Ensure text color contrasts well with the background */
+}
+/* Highlight the active link */
+.nav-links li a.active {
+  background-color: #4e54c8; /* Background color for active link */
+  color: white; /* Ensure text color contrasts well with the background */
+}
+
+/* Hover effect */
+.nav-links li a:hover {
+  background-color: #4e54c8;
+}
+
+/* Mobile responsiveness */
+.toggle-button {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    padding: 1rem;
+    border-bottom: 1px solid #444;
+  }
+
+  .toggle-button {
+    display: block;
+  }
+}
